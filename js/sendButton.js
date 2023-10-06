@@ -76,16 +76,6 @@ function send(x, y, r) {
     });
 }
 
-const fadeOut = (el, timeout) => {
-    el.style.opacity = 1;
-    el.style.transition = `opacity ${timeout}ms`;
-    el.style.opacity = 0;
-
-    setTimeout(() => {
-        el.style.display = 'none';
-    }, timeout);
-};
-
 window.realAlert = window.alert
 window.alert = function (s) {
     customAlert(s);

@@ -5,16 +5,19 @@ session_start();
 if (!isset($_SESSION["results"])) {
     $_SESSION["results"] = array();
 }
-
-if ($_POST['clear'] == "false") {
-    $y = $_POST['y'];
-    $x = $_POST['x'];
-    $r = $_POST['r'];
-    $time_zone_offset = $_POST['time'];
+if ($_GET['clear'] == "false") {
+    $y = $_GET['y'];
+    $x = $_GET['x'];
+    $r = $_GET['r'];
+    $time_zone_offset = $_GET['time'];
     $validator = new CoordinatesValidator($x, $y, $r);
     if ($validator->checkData()) {
         $hitPoint = new HitPoint($x, $y, $r);
-        $flag = $hitPoint->checkPoint() ? "TRUE" : "FALSE";
+        if ($hitPoint->checkPoint()){
+            $flag = "TRUE";
+        } else {
+            $flag = "FALSE";
+        }
         $time = date('H:i:s', time() + 3 * 60 * 60);
         $newResult = array(
             "time" => $time,

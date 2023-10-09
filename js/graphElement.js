@@ -70,21 +70,21 @@ function redrawGraph(rValueFun) {
 
     let label1, label2;
     if (isNaN(rValueFun)) {
-        label1 = rValueFun
-        label2 = rValueFun + '/2'
+        label1 = rValueFun;
+        label2 = rValueFun + '/2';
     } else {
-        label1 = rValueFun
-        label2 = rValueFun / 2
+        label1 = rValueFun;
+        label2 = rValueFun / 2;
     }
 
-    rValue = label2
-    console.log(label1)
+    rValue = label2;
+    console.log(label1);
     const fontSize = w / 40;
     ctx.fillStyle = 'rgb(54,29,98)';
 
     ctx.font = `500 ${fontSize * 1.4}px sans-serif`;
-    ctx.fillText('y', w / 2 + lineLength, 15)
-    ctx.fillText('x', w - 20, h / 2 - lineLength)
+    ctx.fillText('y', w / 2 + lineLength, 15);
+    ctx.fillText('x', w - 20, h / 2 - lineLength);
 
     ctx.fillText('-' + label2, w / 2 + lineLength, h / 2 + r / 2);
     ctx.fillText('-' + label1, w / 2 + lineLength, h / 2 + r);
@@ -97,4 +97,4 @@ function redrawGraph(rValueFun) {
     ctx.fillText('-' + label2, w / 2 - r / 2 - lineLength, h / 2 - lineLength);
 }
 
-redrawGraph(rValue)
+redrawGraph(rValue);
